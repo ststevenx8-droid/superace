@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ST WIN ACE - Login</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="dark-theme flex-center-body">
+  <div class="card auth-card">
+    <div class="center-text mb-4">
+      <a href="../index.html" class="logo"><span class="gold-text">ST WIN</span> <span class="red-text">ACE</span></a>
+      <p class="hint-text mt-1">Sign in to your demo account</p>
+    </div>
+
+    <form id="login-form" class="standard-form">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="login-email" required placeholder="user@example.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-password" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn-primary full-width">Sign In</button>
+    </form>
+
+    <div id="auth-error" class="alert-box error mt-3" style="display: none;"></div>
+
+    <p class="center-text mt-4 hint-text">
+      Don't have an account? <a href="register.html" class="gold-text">Register</a>
+    </p>
+  </div>
+
+  <script type="module">
+    import { AuthController } from '../js/auth.js';
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errBox = document.getElementById('auth-error');
+      errBox.style.display = 'none';
+      try {
+        await AuthController.login(
+          document.getElementById('login-email').value,
+          document.getElementById('login-password').value
+        );
+        window.location.href = 'game.html';
+      } catch (err) {
+        errBox.textContent = err.message;
+        errBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
