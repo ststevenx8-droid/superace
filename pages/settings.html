@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ST WIN ACE - Settings</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="dark-theme">
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo"><span class="gold-text">ST WIN</span> <span class="red-text">ACE</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="game.html">Play Game</a>
+        <a href="settings.html" class="active">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="card" style="max-width: 550px; margin: 0 auto;">
+      <h2>Game Settings</h2>
+      <div class="settings-list mt-4">
+        <div class="setting-item">
+          <div>
+            <strong>Sound Effects</strong>
+            <p class="hint-text">Web Audio synthesizer effects</p>
+          </div>
+          <input type="checkbox" id="sound-toggle" checked>
+        </div>
+        <div class="setting-item mt-3">
+          <div>
+            <strong>Reel Motion Blur</strong>
+            <p class="hint-text">High performance visual effects</p>
+          </div>
+          <input type="checkbox" id="blur-toggle" checked>
+        </div>
+      </div>
+      <button class="btn btn-outline full-width mt-4" id="reset-game-btn">Reset Local Demo Storage</button>
+    </div>
+  </main>
+
+  <script type="module">
+    const soundToggle = document.getElementById('sound-toggle');
+    soundToggle.checked = localStorage.getItem('soundEnabled') !== 'false';
+    soundToggle.addEventListener('change', (e) => {
+      localStorage.setItem('soundEnabled', e.target.checked);
+    });
+
+    document.getElementById('reset-game-btn').addEventListener('click', () => {
+      if (confirm('Reset your local demo balance to 10,000?')) {
+        localStorage.setItem('guestBalance', 10000);
+        localStorage.removeItem('guestHistory');
+        alert('Local Demo Game reset successfully.');
+      }
+    });
+  </script>
+</body>
+</html>
