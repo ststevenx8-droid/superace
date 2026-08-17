@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ST WIN ACE - Premium Arcade Slot Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dark-theme">
+  <div class="particles-bg"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="gold-text">ST WIN</span> <span class="red-text">ACE</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/game.html">Play Game</a>
+        <a href="pages/history.html">History</a>
+        <a href="pages/wallet.html">Wallet</a>
+        <a href="pages/profile.html">Profile</a>
+        <a href="pages/support.html">Support</a>
+        <a href="pages/settings.html">Settings</a>
+      </nav>
+      <div class="auth-buttons" id="nav-auth-section">
+        <a href="pages/login.html" class="btn btn-secondary">Login</a>
+        <a href="pages/register.html" class="btn btn-primary">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <div class="hero-content">
+      <div class="brand-badge">DEMO MODE • 100% VIRTUAL CREDITS</div>
+      <h1 class="hero-title">ST WIN <span class="gold-gradient">ACE</span></h1>
+      <p class="hero-subtitle">Premium Arcade Slot Simulation & Free Virtual Reel Experience</p>
+      
+      <div class="hero-cta-group">
+        <a href="pages/game.html" class="btn btn-play-large pulse">PLAY DEMO NOW</a>
+        <button class="btn btn-outline" onclick="document.getElementById('paytable-modal').classList.add('active')">VIEW PAYTABLE</button>
+      </div>
+
+      <!-- Feature Badges -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <h3>Ultra Fast Reels</h3>
+          <p>Smooth vertical cascading physics with instant stopping response.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">👑</div>
+          <h3>Bonus Free Spins</h3>
+          <p>Hit 3 Golden Stars to trigger 5 complimentary Demo Bonus Spins.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🛡️</div>
+          <h3>Virtual Economy</h3>
+          <p>Play risk-free. No real-money gambling or cash withdrawals.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Paytable Modal -->
+  <div class="modal" id="paytable-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Virtual Demo Paytable</h2>
+        <span class="close-btn" onclick="document.getElementById('paytable-modal').classList.remove('active')">&times;</span>
+      </div>
+      <div class="paytable-grid">
+        <div class="pay-row"><span>Ace Crown</span> <strong>100x Bet</strong></div>
+        <div class="pay-row"><span>Golden Coin</span> <strong>50x Bet</strong></div>
+        <div class="pay-row"><span>Golden Star (Bonus)</span> <strong>30x + 5 Free Spins</strong></div>
+        <div class="pay-row"><span>Ruby Gem</span> <strong>20x Bet</strong></div>
+        <div class="pay-row"><span>Ace (A)</span> <strong>12x Bet</strong></div>
+        <div class="pay-row"><span>King (K)</span> <strong>8x Bet</strong></div>
+        <div class="pay-row"><span>Queen (Q)</span> <strong>5x Bet</strong></div>
+        <div class="pay-row"><span>Jack (J)</span> <strong>4x Bet</strong></div>
+        <div class="pay-row"><span>Ten (10)</span> <strong>2x Bet</strong></div>
+      </div>
+      <p class="disclaimer-text">*All payout ratios represent virtual demo coins only.</p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { AuthController } from './js/auth.js';
+    AuthController.init((user) => {
+      const authSection = document.getElementById('nav-auth-section');
+      if (user) {
+        authSection.innerHTML = `
+          <span class="user-greeting">🪙 ${user.virtualBalance.toLocaleString()}</span>
+          <a href="pages/profile.html" class="btn btn-secondary">${user.name}</a>
+          <button class="btn btn-outline" id="btn-logout">Logout</button>
+        `;
+        document.getElementById('btn-logout').addEventListener('click', () => AuthController.logout());
+      }
+    });
+  </script>
+</body>
+</html>
