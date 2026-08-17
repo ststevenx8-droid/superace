@@ -1,0 +1,52 @@
+@media (max-width: 840px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .wallet-grid {
+    grid-template-columns: 1fr;
+  }
+  .arcade-cabinet {
+    padding: 1rem;
+    margin: 1rem 0.5rem;
+  }
+  .reels-frame {
+    height: 270px;
+  }
+  .symbol-cell {
+    height: 90px;
+    padding: 4px;
+  }
+  .sym-svg {
+    width: 65px;
+    height: 65px;
+  }
+  .cabinet-dashboard {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .big-spin-button {
+    width: 75px;
+    height: 75px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    display: none; /* Can be toggled or viewed via bottom mobile bar */
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .reels-frame {
+    height: 220px;
+  }
+  .symbol-cell {
+    height: 73px;
+  }
+  .sym-svg {
+    width: 52px;
+    height: 52px;
+  }
+}
