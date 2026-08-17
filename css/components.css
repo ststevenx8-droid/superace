@@ -1,0 +1,164 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.15s, background-color 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-primary {
+  background: linear-gradient(135deg, #f39c12, #d35400);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+}
+.btn-secondary {
+  background: #2d1e45;
+  color: #fff;
+  border: 1px solid var(--accent-purple);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+}
+.btn-play-large {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  padding: 1.1rem 2.8rem;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  box-shadow: 0 0 25px rgba(231, 76, 60, 0.6);
+}
+.btn-bkash {
+  background-color: #d12053;
+  color: #fff;
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+}
+
+/* Cards & Layout */
+.page-container {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.wallet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.balance-huge {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+  margin: 1rem 0;
+}
+.bkash-logo-img {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.highlight-number {
+  color: #e84393;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+.bkash-disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+/* Form */
+.standard-form .form-group {
+  margin-bottom: 1.2rem;
+}
+.standard-form label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+.standard-form input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #0f0a1c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.standard-form input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+.full-width { width: 100%; }
+
+/* Table */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table th, .data-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.data-table th {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+.win-color { color: #2ecc71; font-weight: bold; }
+
+/* Modal */
+.modal, .win-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal.active, .win-modal-overlay.active {
+  display: flex;
+}
+.modal-content, .win-modal-card {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-gold);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
